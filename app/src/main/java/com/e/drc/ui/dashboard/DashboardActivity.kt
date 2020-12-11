@@ -6,6 +6,7 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.e.drc.BR
 import com.e.drc.R
 import com.e.drc.adapter.DashboarAdapater
@@ -48,7 +49,20 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, DashboardViewMo
         activityDashboardBinding = getViewDataBinding()
         viewModel.setNavigator(this)
         viewModel.getData(this)
-        activityDashboardBinding!!.txtUserName.text="Welcome "+viewModel.getSession().getName()
+        intent.extras?.run {
+            var Flag = getString("Flag")
+            if(Flag=="1")
+            {
+                activityDashboardBinding!!.txtUserName.text="Welcome "+viewModel.getSession().getName()
+            }
+            else
+            {
+                activityDashboardBinding!!.txtUserName.text="Welcome Back "+viewModel.getSession().getName()
+            }
+
+        }
+
+
         activityDashboardBinding!!.toolbar.setRightButtonListener(listener = View.OnClickListener {
            viewModel.getSession().logout()
             openActivity(LoginActivity::class.java)

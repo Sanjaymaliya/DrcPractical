@@ -69,15 +69,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
             {
                 viewModel.getSession().setName(activityLoginBinding!!.editTextUserNme.text.toString().trim())
                 showToast("Login Success")
-
+                var buddle=Bundle()
+                buddle.putString("Flag","0")
+                openActivity(DashboardActivity::class.java,buddle)
+                finish()
             }
             else{
                 add()
             }
             viewModel.getSession().setString(IS_LOGIN,true)
 
-            openActivity(DashboardActivity::class.java)
-            finish()
         }
 
     }
@@ -101,7 +102,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
         realm!!.copyToRealm(userModel)
         realm!!.commitTransaction()
         viewModel.getSession().setName(activityLoginBinding!!.editTextUserNme.text.toString().trim())
-
+        var buddle=Bundle()
+        buddle.putString("Flag","1")
+        openActivity(DashboardActivity::class.java,buddle)
+        finish()
         showToast("Register Successfully")
     }
+
 }

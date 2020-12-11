@@ -46,7 +46,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
     override fun onMainScreen() {
         showToast(""+viewModel.getSession().getLogin(IS_LOGIN))
         if (viewModel.getSession().getLogin(IS_LOGIN)) {
-            openActivity(DashboardActivity::class.java)
+            var buddle=Bundle()
+            buddle.putString("Flag","0")
+            openActivity(DashboardActivity::class.java,buddle)
             finish()
         } else {
             openActivity(LoginActivity::class.java)
