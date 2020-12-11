@@ -7,9 +7,12 @@ import com.e.drc.BR
 import com.e.drc.R
 import com.e.drc.base.BaseActivity
 import com.e.drc.databinding.ActivityLoginBinding
+import com.e.drc.extensions.openActivity
 import com.e.drc.extensions.showToast
 import com.e.drc.model.UserModel
+import com.e.drc.ui.dashboard.DashboardActivity
 import com.e.drc.utils.RealmController
+import com.e.drc.utils.Session.Key.IS_LOGIN
 import com.e.drc.utils.Validation
 import com.e.drc.utils.ViewModelProviderFactory
 import io.realm.Realm
@@ -69,6 +72,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
             else{
                 add()
             }
+            viewModel.getSession().setString(IS_LOGIN,true)
+            openActivity(DashboardActivity::class.java)
+            finish()
         }
 
     }

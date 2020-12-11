@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:attrs="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.e.drc.ui.description.DescriptionViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.e.drc.view.ToolBar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Description"
+            app:leftDrawable="@drawable/ic_back_arrow"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontalWeightGuide2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_launcher_foreground"
+            attrs:layout_constraintBottom_toTopOf="@+id/horizontalWeightGuide2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="Code : 100"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalWeightGuide2"
+            attrs:layout_constraintEnd_toEndOf="parent"
+            attrs:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="Name : Swift"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            attrs:layout_constraintEnd_toEndOf="parent"
+            attrs:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+
+            android:id="@+id/txtDes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDate" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

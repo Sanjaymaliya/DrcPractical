@@ -19,13 +19,13 @@ class Session(context: Context) {
         editor.clear()
         editor.commit()
     }
-    fun getString(value:String): String {
-        return pref.getString(value, "")!!
+    fun getLogin(value:String): Boolean {
+        return pref.getBoolean(value, false)
     }
 
-    fun setString(key: String, value: String) {
+    fun setString(key: String, value: Boolean) {
         val editor = pref.edit()
-        editor.putString(key, value)
+        editor.putBoolean(key, value)
         editor.apply()
     }
 

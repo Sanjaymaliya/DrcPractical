@@ -7,7 +7,10 @@ import com.e.drc.R
 import com.e.drc.base.BaseActivity
 import com.e.drc.databinding.ActivitySplashBinding
 import com.e.drc.extensions.openActivity
+import com.e.drc.extensions.showToast
+import com.e.drc.ui.dashboard.DashboardActivity
 import com.e.drc.ui.login.LoginActivity
+import com.e.drc.utils.Session.Key.IS_LOGIN
 import com.e.drc.utils.ViewModelProviderFactory
 import org.koin.android.ext.android.inject
 
@@ -39,9 +42,17 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
         viewModel.onSplashHandler()
 
     }
-    override fun onMainScreen() {
-        openActivity(LoginActivity::class.java)
-    }
 
+    override fun onMainScreen() {
+        showToast(""+viewModel.getSession().getLogin(IS_LOGIN))
+        if (viewModel.getSession().getLogin(IS_LOGIN)) {
+            openActivity(DashboardActivity::class.java)
+            finish()
+        } else {
+            openActivity(LoginActivity::class.java)
+            finish()
+        }
+
+    }
 
 }
