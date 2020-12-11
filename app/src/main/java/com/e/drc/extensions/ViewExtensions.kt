@@ -33,7 +33,7 @@ fun View.visible() {
 fun getFormatDate(strDate: String): String {
     if (strDate.isNotEmpty()) {
 
-        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss+SSSZ'", Locale.ENGLISH)
         var date: Date? = null
         try {
             date = format.parse(strDate)

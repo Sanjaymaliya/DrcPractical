@@ -28,7 +28,14 @@ class Session(context: Context) {
         editor.putBoolean(key, value)
         editor.apply()
     }
-
+    fun setName(value: String) {
+        val editor = pref.edit()
+        editor.putString("Name", value)
+        editor.apply()
+    }
+    fun getName(): String {
+        return pref.getString("Name", "").toString()
+    }
     object Key {
         internal const val IS_LOGIN = "isLogin"
     }

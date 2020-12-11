@@ -67,12 +67,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
 
             if(data!!.size>0)
             {
-                showToast("Success")
+                viewModel.getSession().setName(activityLoginBinding!!.editTextUserNme.text.toString().trim())
+                showToast("Login Success")
+
             }
             else{
                 add()
             }
             viewModel.getSession().setString(IS_LOGIN,true)
+
             openActivity(DashboardActivity::class.java)
             finish()
         }
@@ -97,6 +100,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
         realm!!.beginTransaction()
         realm!!.copyToRealm(userModel)
         realm!!.commitTransaction()
+        viewModel.getSession().setName(activityLoginBinding!!.editTextUserNme.text.toString().trim())
+
         showToast("Register Successfully")
     }
 }

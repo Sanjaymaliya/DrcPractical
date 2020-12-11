@@ -48,6 +48,7 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, DashboardViewMo
         activityDashboardBinding = getViewDataBinding()
         viewModel.setNavigator(this)
         viewModel.getData(this)
+        activityDashboardBinding!!.txtUserName.text="Welcome "+viewModel.getSession().getName()
         activityDashboardBinding!!.toolbar.setRightButtonListener(listener = View.OnClickListener {
            viewModel.getSession().logout()
             openActivity(LoginActivity::class.java)
