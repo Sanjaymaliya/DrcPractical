@@ -5,6 +5,8 @@ import android.app.Application
 import android.os.Bundle
 import com.e.drc.koin.networkModule
 import com.e.drc.koin.viewModule
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -24,7 +26,9 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
     override fun onCreate() {
         super.onCreate()
         instance = this
-
+        Realm.init(this)
+        val config = RealmConfiguration.Builder().name("myrealm.realm").build()
+        Realm.setDefaultConfiguration(config)
         val listOfModule = arrayListOf(networkModule, viewModule)
 
         startKoin {

@@ -3,6 +3,7 @@ package com.e.drc.utils
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.e.drc.ui.login.LoginViewModel
 import com.e.drc.ui.splashscreen.SplashViewModel
 
 
@@ -17,6 +18,10 @@ class ViewModelProviderFactory(application: Application, session: Session) :
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> SplashViewModel(
+                application,
+                session
+            ) as T
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> LoginViewModel(
                 application,
                 session
             ) as T

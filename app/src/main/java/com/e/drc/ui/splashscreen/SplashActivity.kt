@@ -6,6 +6,8 @@ import com.e.drc.BR
 import com.e.drc.R
 import com.e.drc.base.BaseActivity
 import com.e.drc.databinding.ActivitySplashBinding
+import com.e.drc.extensions.openActivity
+import com.e.drc.ui.login.LoginActivity
 import com.e.drc.utils.ViewModelProviderFactory
 import org.koin.android.ext.android.inject
 
@@ -38,6 +40,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
 
     }
     override fun onMainScreen() {
+        openActivity(LoginActivity::class.java)
     }
 
 

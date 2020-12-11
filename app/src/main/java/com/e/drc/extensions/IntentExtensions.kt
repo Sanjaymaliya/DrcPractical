@@ -10,3 +10,8 @@ fun <T> Context.openActivity(it: Class<T>, bundle: Bundle) {
     intent.putExtras(bundle)
     startActivity(intent)
 }
+
+fun <T> Context.openActivity(it: Class<T>) {
+    val intent = Intent(this, it)
+    startActivity(intent)
+}

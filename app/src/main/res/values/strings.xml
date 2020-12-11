@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Drc</string>
+    <string name="email_empty">Email is empty</string>
+
+    <string name="enter_valid_email">Enter valid email</string>
+
+    <string name="password_empty">Password is empty</string>
+
+    <string name="password_must_be_at_least_characters">Password at least 6 char</string>
+
+
+
 
 </resources>
